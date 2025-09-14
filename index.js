@@ -11,7 +11,7 @@ connectDB();
 app.use(express.json());
 app.use("/", notesRouter);
 
-app.use(cors({origin:"http://localhost:5173"}));
+app.use(cors({origin:process.env.FRONTEND_URL}));
 // app.get(/(.*)/ ,(req,res)=>{
 //     res.send("404 not found");
 // })
