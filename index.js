@@ -8,10 +8,11 @@ const app = express();
 const port = process.env.PORT;
 
 connectDB();
+app.use(cors({origin:process.env.FRONTEND_URL}));
 app.use(express.json());
 app.use("/", notesRouter);
 
-app.use(cors({origin:process.env.FRONTEND_URL}));
+
 // app.get(/(.*)/ ,(req,res)=>{
 //     res.send("404 not found");
 // })
