@@ -4,6 +4,7 @@ dotenv.config();
 const cors = require("cors");
 const connectDB =require("./database/ConnectDb");
 const notesRouter = require("./Routes/notesRoutes");
+const usersRouter = require("./Routes/userRoutes");
 const app = express();
 const port = process.env.PORT;
 
@@ -11,6 +12,7 @@ connectDB();
 app.use(cors({origin:process.env.FRONTEND_URL}));
 app.use(express.json());
 app.use("/", notesRouter);
+app.use("/", usersRouter);
 
 
 // app.get(/(.*)/ ,(req,res)=>{
